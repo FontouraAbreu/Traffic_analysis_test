@@ -6,6 +6,17 @@ Esse documento tem como objetivo apresentar uma análise de pacotes de tráfego 
 
 Esse relatório será organizado no seguinte formato:
 
+- [Introdução](#1-introdução)
+- [IPs e portas](#2-ips-e-portas)
+  - [IPs](#21-ips)
+  - [Portas](#22-portas)
+- [Domínios e arquivos acessados](#3-domínios-e-arquivos-acessados)
+  - [Arquivos](#31-arquivos)
+- [Analise do hash do arquivo pcap](#4-analise-do-hash-do-arquivo-pcap)
+- [Comportamento do malware](#5-comportamento-do-malware)
+- [Diagrama de sequência](#6-diagrama-de-sequência)
+- [Conclusão](#7-conclusão)
+
 ## 2. IPs e portas
 
 Podemos encontrar os IPs e portas acessando a aba `Statistics` e depois `IPV4 Statistics` e `Destination and Ports`.
