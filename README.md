@@ -148,4 +148,18 @@ Essa comportamento indica que o malware: procura por arquivos de cookies, modifi
 
 A seguir, um diagrama de sequência que representa os eventos que ocorrem no pcap:
 
-![Diagrama de sequência](./diagram.png)
+![Diagrama de sequência](./Diagram.png)
+
+***
+
+## 7. Conclusão
+
+O pcap analisado representa o tráfego de um usuário já infectado. O malware que infectou o usuário é um `banker` que tenta roubar informações bancárias do usuário. Ele faz isso instalando um certificado no computador e depois acessando um site falso que utiliza esse certificado para se passar por um site legítimo. O malware também modifica o histórico de cookies e deleta configurações de proxy e intranet.
+
+O nome do malware é `trojan.fareit/noon` ele está associado à `CVE-2017-11882` que explora uma corrupção de memória no `Microsoft Office` e permite a execução de código arbitrário.
+
+***
+
+## Autor
+
+Vinícius Fontoura de Abreu - GRR20206873
