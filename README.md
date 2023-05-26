@@ -105,7 +105,7 @@ Vamos utilizar as abas de `Details` e `Behavior` do `Virus Total` para analisar 
 
   ***
 
-### 5.1. Details
+### 5.1. Detalhes
 
 Informações claras como podem:
 
@@ -117,6 +117,35 @@ Essa importação em especial, `MSVBVM60.DLL`, é um arquivo que contém funçõ
 
   ***
 
-### 5.2. Behavior
+### 5.2. Comportamento
 
 Existem 4 sandboxs que analisaram o malware e podemos ver o comportamento dele sumarizado:
+
+Ao que parece o malware baixa um certificado e o instala no computador. Depois ele acessa a url: `https://onedrive.live.com:80/download?cid=e61e5f3f655316fa&resid=e61e5f3f655316fa%21125&authkey=ab5cy3xsz3addbe`. Essa url `não apareceu no pcap`, mas é possível que ela tenha sido acessada antes do pcap começar a ser capturado.
+
+Além disso, o malware abre ou modifica diversos arquivos, entre eles podemos listar alguns que são mais suspeitos:
+
+- Abertos:
+  - `<DRIVERS>\etc\hosts`
+  - `C:\Documents and Settings\Administrator\Local Settings\Temp\EB93A6\996E.exe`
+  - `C:\Documents and Settings\Administrator\Cookies\index.dat`
+  - `C:\WINDOWS\system32\update.exe`
+- Modificados:
+  - `%APPDATA%\Microsoft\Windows\Cookies\index.dat`
+  - `%LOCALAPPDATA%\Microsoft\Windows\History\History.IE5\index.dat`
+  - `%LOCALAPPDATA%\Microsoft\Windows\<INETFILES>\Content.IE5\index.dat`
+
+O malware também deleta algumas chaves no registro do windows:
+
+- `<HKCU>\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\\ProxyBypass`
+- `<HKCU>\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\\IntranetName`
+
+Essa comportamento indica que o malware: procura por arquivos de cookies, modifica o histórico de cookies e deleta configurações de proxy e intranet que são característica de um `banker`.
+
+***
+
+## 6. Diagrama de sequência
+
+A seguir, um diagrama de sequência que representa os eventos que ocorrem no pcap:
+
+![Diagrama de sequência](./diagram.png)
